@@ -5,7 +5,15 @@
     <br />
     <button @click="handleClick">Click</button>
   </div>
-  <Modal v-if="showModal" :header="header" :text="text" :theme="theme" @close="toggleModal" />
+  <Modal v-if="showModal" :theme="theme" @close="toggleModal">
+    <template v-slot:links>
+      <a href="#">Sign me up!</a>
+    </template>
+    <h1>Sign Up for Giveaways</h1>
+    <p>
+      Get the latest updates as soon as we give them away
+    </p>
+  </Modal>
   <button @click="toggleModal">Show modal</button>
 </template>
 
@@ -18,8 +26,6 @@ export default {
   data() {
     return {
       title: "My first App",
-      header: "Sign Up for Giveaways",
-      text: "Get the latest updates as soon as we give them away nowwww",
       theme: "sales",
       showModal: false,
     };
