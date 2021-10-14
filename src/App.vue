@@ -14,7 +14,23 @@
       Get the latest updates as soon as we give them away
     </p>
   </Modal>
+  <br>
   <button @click="toggleModal">Show modal</button>
+  <br>
+  <br>
+  <button @click.alt="toggleModalTwo">Show my modal(alt)</button>
+
+  <!-- Modals -->
+  <Modal v-if="showModalTwo" @close="toggleModalTwo">
+    <template v-slot:links>
+      <a href="#">Sign me up!</a>
+    </template>
+    <h1>How to reuse a modal</h1>
+    <p>
+      This is the way we reuse the modal template
+    </p>
+  </Modal>
+
 </template>
 
 <script>
@@ -28,6 +44,7 @@ export default {
       title: "My first App",
       theme: "sales",
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -37,6 +54,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
