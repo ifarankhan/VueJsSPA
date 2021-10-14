@@ -5,7 +5,7 @@
     <br>
     <button @click="handleClick">Click</button>
   </div>
-  <modal></modal>
+  <Modal header="Sign Up for Giveaways" text="Get the latest updates as soon as we give them away"/>
 </template>
 
 <script>
