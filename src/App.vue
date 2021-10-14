@@ -5,32 +5,36 @@
     <br />
     <button @click="handleClick">Click</button>
   </div>
-  <Modal v-if="showModal" :theme="theme" @close="toggleModal">
-    <template v-slot:links>
-      <a href="#">Sign me up!</a>
-    </template>
-    <h1>Sign Up for Giveaways</h1>
-    <p>
-      Get the latest updates as soon as we give them away
-    </p>
-  </Modal>
-  <br>
+
+  <br />
   <button @click="toggleModal">Show modal</button>
-  <br>
-  <br>
+  <br />
+  <br />
   <button @click.alt="toggleModalTwo">Show my modal(alt)</button>
 
   <!-- Modals -->
-  <Modal v-if="showModalTwo" @close="toggleModalTwo">
-    <template v-slot:links>
-      <a href="#">Sign me up!</a>
-    </template>
-    <h1>How to reuse a modal</h1>
-    <p>
-      This is the way we reuse the modal template
-    </p>
-  </Modal>
-
+  <teleport to=".modals" v-if="showModal">
+    <Modal :theme="theme" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">Sign me up!</a>
+      </template>
+      <h1>Sign Up for Giveaways</h1>
+      <p>
+        Get the latest updates as soon as we give them away
+      </p>
+    </Modal>
+  </teleport>
+  <teleport to=".modals" v-if="showModalTwo">
+    <Modal @close="toggleModalTwo">
+      <template v-slot:links>
+        <a href="#">Sign me up!</a>
+      </template>
+      <h1>How to reuse a modal</h1>
+      <p>
+        This is the way we reuse the modal template
+      </p>
+    </Modal>
+  </teleport>
 </template>
 
 <script>
