@@ -5,11 +5,15 @@
     <br>
     <button @click="handleClick">Click</button>
   </div>
+  <modal></modal>
 </template>
 
 <script>
+import Modal from "./components/Modal.vue"
+
 export default {
   name: "App",
+  components: { Modal },
   data() {
     return {
       title: "My first App",
